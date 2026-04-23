@@ -7,31 +7,59 @@ import { Heart, Sparkles } from "lucide-react";
 const dresses = [
   {
     id: 1,
-    title: "Rosa Romântico",
-    description: "Vestido longo em chiffon com caimento suave, ideal para casamentos diurnos.",
-    image: "/dress1.png",
-    style: "Boho Chic",
-  },
-  {
-    id: 2,
-    title: "Verde Sálvia",
-    description: "Elegância minimalista em cetim de seda, perfeito para cerimônias clássicas.",
-    image: "/dress2.png",
-    style: "Minimalista",
-  },
-  {
-    id: 3,
-    title: "Azul Noturno",
-    description: "Sofisticação e glamour em veludo com brilhos para festas luxuosas.",
-    image: "/dress3.png",
+    title: "Vermelho Vibrante",
+    description: "Corte sereia com decote coração, perfeito para uma entrada triunfal.",
+    image: "/IMG_5863.JPG.jpeg",
     style: "Glamour",
   },
   {
+    id: 2,
+    title: "Elegância Clássica",
+    description: "Vestido tomara que caia com fenda lateral, unindo sofisticação e modernidade.",
+    image: "/IMG_5864.JPG.jpeg",
+    style: "Clássico",
+  },
+  {
+    id: 3,
+    title: "Chic Minimalista",
+    description: "Linhas limpas e tecido estruturado para um visual contemporâneo e limpo.",
+    image: "/IMG_5865.JPG.jpeg",
+    style: "Minimalista",
+  },
+  {
     id: 4,
-    title: "Terracota Boêmio",
-    description: "Leveza e rendas para casamentos ao ar livre ou na praia no fim de tarde.",
-    image: "/dress4.png",
-    style: "Rústico",
+    title: "Red Carpet Ready",
+    description: "Drapeado luxuoso que valoriza a silhueta em eventos de gala.",
+    image: "/IMG_5866.JPG.jpeg",
+    style: "Luxo",
+  },
+  {
+    id: 5,
+    title: "Romance Moderno",
+    description: "Fluidez e movimento em um design que celebra a feminilidade.",
+    image: "/IMG_5867.JPG.jpeg",
+    style: "Romântico",
+  },
+  {
+    id: 6,
+    title: "Sofisticação Atemporal",
+    description: "Decote assimétrico e caimento impecável para madrinhas exigentes.",
+    image: "/IMG_5868.JPG.jpeg",
+    style: "Atemporal",
+  },
+  {
+    id: 7,
+    title: "Audácia Elegante",
+    description: "Recortes estratégicos que trazem um toque de ousadia com classe.",
+    image: "/IMG_5870.PNG",
+    style: "Moderno",
+  },
+  {
+    id: 8,
+    title: "Presença Marcante",
+    description: "Capa integrada para um visual dramático e inesquecível.",
+    image: "/IMG_5872.PNG",
+    style: "Dramático",
   },
 ];
 
@@ -55,11 +83,11 @@ export default function Home() {
               <Sparkles className="text-primary h-6 w-6" />
             </div>
             <h1 className="text-5xl md:text-7xl font-serif text-foreground mb-6">
-              Madrinhas Inesquecíveis
+              Paleta Vermelho Paixão
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Descubra ideias de vestidos perfeitos para acompanhar quem você ama
-              nesse dia tão especial. Encontre o estilo que combina com você.
+              Uma seleção exclusiva de vestidos em tons de vermelho para madrinhas 
+              que desejam marcar presença com elegância, força e sofisticação.
             </p>
           </motion.div>
         </div>
@@ -79,7 +107,7 @@ export default function Home() {
               >
                 <div className="relative aspect-[3/4] w-full overflow-hidden">
                   <Image
-                    src={dress.image}
+                    src={`/inspiracoes${dress.image}`}
                     alt={dress.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
