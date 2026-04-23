@@ -81,27 +81,23 @@ const dresses = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white md:bg-wedding-beige text-stone-900 md:text-stone-800 font-sans md:selection:bg-wedding-red/20">
-      {/* Decorative top border representing foliage (Desktop only) */}
-      <div className="hidden md:block w-full h-8 bg-gradient-to-r from-wedding-olive/20 via-wedding-olive/40 to-wedding-olive/20" />
+    <main className="min-h-screen bg-wedding-beige text-stone-900 font-sans selection:bg-wedding-red/20">
+      <div className="w-full h-0.5 bg-gradient-to-r from-wedding-olive/30 via-wedding-gold/60 to-wedding-olive/30" />
 
-      <div className="max-w-md md:max-w-6xl mx-auto md:px-4 md:py-16 lg:py-24 bg-white md:bg-transparent min-h-screen md:min-h-0 sm:border-x sm:border-stone-200 md:border-none">
-        
-        {/* Instagram-like Header (Mobile only) */}
-        <header className="md:hidden sticky top-0 z-50 bg-white border-b border-stone-200 px-4 py-3 flex items-center justify-between">
-          <h1 className="font-script text-2xl font-bold tracking-tight">Galeria de Vestidos</h1>
-          <Heart className="w-6 h-6" />
+      <div className="max-w-md md:max-w-5xl mx-auto md:px-4 md:py-14 lg:py-20">
+
+        {/* Header */}
+        <header className="sticky md:static top-0 z-50 bg-wedding-beige/95 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none border-b border-stone-200 md:border-none px-4 py-3 md:py-0 md:mb-10 flex items-center justify-between md:justify-center">
+          <h1 className="font-script text-2xl md:text-5xl lg:text-6xl text-stone-900">Galeria de Vestidos</h1>
+          <Heart className="md:hidden w-6 h-6" />
         </header>
+        <p className="hidden md:block text-center font-serif text-stone-500 mb-10 -mt-6">
+          Algumas ideias de estilo e modelagem na paleta escolhida
+        </p>
 
-        {/* Desktop Title */}
-        <div className="hidden md:block text-center mb-16">
-          <h2 className="font-script text-5xl lg:text-6xl text-stone-900 mb-4">Galeria de Vestidos</h2>
-          <p className="font-serif text-stone-500">Algumas ideias de estilo e modelagem na paleta escolhida</p>
-        </div>
-
-        {/* Feed / Grid */}
-        <section className="pb-16 md:pb-0">
-          <div className="flex flex-col gap-6 sm:gap-8 pt-2 md:pt-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8">
+        {/* Feed / Masonry */}
+        <section className="pb-16 md:pb-8">
+          <div className="flex flex-col pt-2 md:pt-0 md:block md:columns-3 lg:columns-4 md:[column-gap:10px]">
             {dresses.map((dress, index) => (
               <motion.div
                 key={dress.id}
@@ -109,84 +105,62 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white md:group md:relative md:rounded-xl md:overflow-hidden md:shadow-sm hover:md:shadow-xl md:transition-all md:duration-500 md:border md:border-stone-100"
+                className="bg-white group relative border-b border-stone-100 md:border md:border-stone-200 md:rounded-xl md:overflow-hidden md:shadow-sm md:hover:shadow-md md:transition-shadow md:duration-300 md:break-inside-avoid md:mb-[10px] md:inline-block md:w-full"
               >
-                {/* Post Header (Mobile only) */}
-                <div className="md:hidden flex items-center justify-between px-3 py-2">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-fuchsia-600 p-[2px]">
-                      <div className="w-full h-full bg-white rounded-full border border-white flex items-center justify-center overflow-hidden">
+                {/* Post Header */}
+                <div className="flex items-center justify-between px-3 py-2.5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-fuchsia-600 p-[2px] flex-shrink-0">
+                      <div className="w-full h-full bg-white rounded-full flex items-center justify-center">
                         <span className="text-[10px] font-bold text-stone-700">L&P</span>
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-sm font-semibold">{dress.title}</h3>
-                      <p className="text-xs text-stone-500">{dress.style}</p>
+                      <p className="text-sm font-semibold leading-none mb-0.5">{dress.title}</p>
+                      <p className="text-xs text-stone-400">{dress.style}</p>
                     </div>
                   </div>
-                  <MoreHorizontal className="w-5 h-5 text-stone-600" />
+                  <MoreHorizontal className="w-5 h-5 text-stone-400" />
                 </div>
 
-                {/* Post Image */}
-                <div className="relative aspect-[4/5] md:aspect-[3/4] w-full bg-stone-100 overflow-hidden">
+                {/* Image — natural height on all screen sizes */}
+                <div className="w-full bg-stone-100 overflow-hidden">
                   <Image
-                    src={dress.image}
+                    src={`/inspiracoes${dress.image}`}
                     alt={dress.title}
-                    fill
-                    className="object-cover md:transition-transform md:duration-700 md:group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    width={600}
+                    height={800}
+                    className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
                   />
-                  
-                  {/* Desktop Hover Effects */}
-                  <div className="hidden md:block absolute inset-0 bg-wedding-red/0 group-hover:bg-wedding-red/10 transition-colors duration-500 mix-blend-multiply" />
-                  <div className="hidden md:block absolute top-4 right-4 bg-white/80 backdrop-blur-md p-2.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 shadow-sm text-wedding-red">
-                    <Heart className="w-4 h-4 fill-current" />
-                  </div>
                 </div>
 
-                {/* Post Actions (Mobile only) */}
-                <div className="md:hidden px-3 pt-3 pb-2 flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <Heart className="w-6 h-6 hover:text-red-500 hover:fill-red-500 transition-colors cursor-pointer" />
+                {/* Actions */}
+                <div className="px-3 pt-2.5 pb-1.5 flex items-center justify-between">
+                  <div className="flex items-center gap-3.5">
+                    <Heart className="w-6 h-6 hover:text-wedding-red hover:fill-wedding-red transition-colors cursor-pointer" />
                     <MessageCircle className="w-6 h-6 hover:text-stone-500 transition-colors cursor-pointer" />
                     <Send className="w-6 h-6 hover:text-stone-500 transition-colors cursor-pointer" />
                   </div>
                   <Bookmark className="w-6 h-6 hover:text-stone-500 transition-colors cursor-pointer" />
                 </div>
 
-                {/* Mobile Post Details (Likes, Caption, Time) */}
-                <div className="md:hidden px-3 pb-4">
+                {/* Details */}
+                <div className="px-3 pb-4">
                   <p className="font-semibold text-sm mb-1">{dress.likes} curtidas</p>
-                  <p className="text-sm">
-                    <span className="font-semibold mr-2">{dress.title}</span>
-                    {dress.description}
+                  <p className="text-sm leading-snug">
+                    <span className="font-semibold mr-1">{dress.title}</span>
+                    <span className="text-stone-500">{dress.description}</span>
                   </p>
-                  <p className="text-[10px] text-stone-500 mt-2 font-medium tracking-wide">
-                    {dress.time}
-                  </p>
+                  <p className="text-[10px] text-stone-400 mt-1.5 font-medium tracking-wide">{dress.time}</p>
                 </div>
-
-                {/* Desktop Post Details */}
-                <div className="hidden md:block p-6 text-center">
-                  <div className="inline-block px-3 py-1 mb-3 text-xs font-serif italic text-wedding-gold border border-wedding-gold/30 rounded-full">
-                    {dress.style}
-                  </div>
-                  <h3 className="text-xl font-serif text-stone-800 mb-2">
-                    {dress.title}
-                  </h3>
-                  <p className="text-stone-500 text-sm font-sans line-clamp-2 leading-relaxed">
-                    {dress.description}
-                  </p>
-                </div>
-
               </motion.div>
             ))}
           </div>
         </section>
-        
+
         {/* Footer */}
-        <footer className="py-12 bg-stone-100/50 mt-20 border-t border-stone-200 md:bg-transparent md:border-none md:mt-10">
-          <div className="container mx-auto px-4 text-center">
+        <footer className="py-10 border-t border-stone-200/60">
+          <div className="text-center">
             <p className="font-script text-3xl text-stone-400">Luana & Patrick</p>
           </div>
         </footer>
@@ -194,4 +168,3 @@ export default function Home() {
     </main>
   );
 }
-

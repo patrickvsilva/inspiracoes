@@ -32,7 +32,7 @@ Custom Tailwind palette in [`tailwind.config.ts`](tailwind.config.ts):
 
 ### Images
 
-Static images live in `public/inspiracoes/`. Because of the `/inspiracoes` basePath, reference them as `/inspiracoes/filename.jpg` in `src` attributes (Next.js prepends basePath automatically for `<Image>`, but not for plain `<img>`).
+Static images live in `public/` (root). Because `unoptimized: true` is set, Next.js `<Image>` does **not** automatically prepend `basePath`. Always pass the full path including basePath: `src="/inspiracoes/filename.jpg"`. The files are served at `/inspiracoes/[filename]` in both dev and production.
 
 ### Animations
 
