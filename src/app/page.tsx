@@ -130,7 +130,7 @@ export default function Home() {
                 {/* Post Image */}
                 <div className="relative aspect-[4/5] md:aspect-[3/4] w-full bg-stone-100 overflow-hidden">
                   <Image
-                    src={`/inspiracoes${dress.image}`}
+                    src={dress.image}
                     alt={dress.title}
                     fill
                     className="object-cover md:transition-transform md:duration-700 md:group-hover:scale-105"
