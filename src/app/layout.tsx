@@ -8,8 +8,8 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif"
 const cormorant = Cormorant_SC({ weight: ["400", "500", "600", "700"], subsets: ["latin"], variable: "--font-script" });
 
 export const metadata: Metadata = {
-  title: "Inspirações - Madrinhas de Casamento",
-  description: "Galeria de ideias de vestidos para madrinhas.",
+  title: "Inspirações para Madrinhas · Luana & Patrick",
+  description: "Referências de estilo e modelagem de vestidos para as madrinhas do casamento de Luana & Patrick — 26/09/2026.",
 };
 
 export default function RootLayout({
